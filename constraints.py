@@ -1,157 +1,125 @@
 import numpy as np
 from Constraint import Constraint
 from Objective import Objective
-from foods import foods
+from config import NUM_DAYS, NUM_FOODS
+from foods import foods, food_keys
+from utils import get_var_idx, create_daily_nutrient_coefs, create_single_food_coefs
 
-calorie_coefs = [f.calories for f in foods.values()]
+# Total decision variables: NUM_FOODS * NUM_DAYS
+# Variables ordered as: [food1_day1, food1_day2, ..., food1_day7, food2_day1, ..., foodN_day7]
+
+# OBJECTIVE: Minimize total weekly calories
+calorie_coefs = np.zeros(NUM_FOODS * NUM_DAYS)
+for food_name in food_keys:
+    for day in range(NUM_DAYS):
+        var_idx = get_var_idx(food_name, day)
+        calorie_coefs[var_idx] = foods[food_name].calories
+
 obj = Objective(
-    coefficients=np.array(calorie_coefs), 
-    obj="min")
+    coefficients=calorie_coefs,
+    obj="min"
+)
 
-carb_coefs = [f.carbs for f in foods.values()]
-carb_constraint = Constraint(
-    coefficients=np.array(carb_coefs),
+diet_constraints = []
+
+############################## DAILY MACRONUTRIENT CONSTRAINTS ##############################
+for day in range(NUM_DAYS):
+    # Daily carb constraint
+    carb_coefs = create_daily_nutrient_coefs(day, 'carbs')
+    diet_constraints.append(Constraint(
+        coefficients=carb_coefs,
+        type=">=",
+        rhs=150.0
+    ))
+    
+    # Daily fat constraint
+    fat_coefs = create_daily_nutrient_coefs(day, 'fat')
+    diet_constraints.append(Constraint(
+        coefficients=fat_coefs,
+        type=">=",
+        rhs=75.0
+    ))
+    
+    # Daily protein constraint
+    protein_coefs = create_daily_nutrient_coefs(day, 'protein')
+    diet_constraints.append(Constraint(
+        coefficients=protein_coefs,
+        type=">=",
+        rhs=170.0
+    ))
+############################## DAILY MACRONUTRIENT CONSTRAINTS ##############################
+
+
+################################## DAILY LIMITS ##################################
+for day in range(NUM_DAYS):
+    # Max 2 bananas per day
+    banana_daily_coefs = np.zeros(NUM_FOODS * NUM_DAYS)
+    banana_daily_coefs[get_var_idx("Banana", day)] = 1
+    diet_constraints.append(Constraint(
+        coefficients=banana_daily_coefs,
+        type="<=",
+        rhs=2.0
+    ))
+    
+    # Max 1 protein powder per day
+    protein_powder_daily_coefs = np.zeros(NUM_FOODS * NUM_DAYS)
+    protein_powder_daily_coefs[get_var_idx("Protein Powder", day)] = 1
+    diet_constraints.append(Constraint(
+        coefficients=protein_powder_daily_coefs,
+        type="<=",
+        rhs=1.0
+    ))
+    
+    # Max 1 smoothie pouch per day
+    smoothie_pouch_daily_coefs = np.zeros(NUM_FOODS * NUM_DAYS)
+    smoothie_pouch_daily_coefs[get_var_idx("Organic Super Smoothie Mix", day)] = 1
+    diet_constraints.append(Constraint(
+        coefficients=smoothie_pouch_daily_coefs,
+        type="<=",
+        rhs=1.0
+    ))
+    
+    # Max 200 g beef per day
+    beef_daily_coefs = np.zeros(NUM_FOODS * NUM_DAYS)
+    beef_daily_coefs[get_var_idx("Beef", day)] = 1
+    diet_constraints.append(Constraint(
+        coefficients=beef_daily_coefs,
+        type="<=",
+        rhs=200.0
+    ))
+################################## DAILY LIMITS ##################################
+
+################################## WEEKLY LIMITS ##################################
+# Max 1 serving of Mahi Mahi per week
+mahi_mahi_weekly_coefs = create_single_food_coefs("Mahi Mahi")
+diet_constraints.append(Constraint(
+    coefficients=mahi_mahi_weekly_coefs,
+    type="<=",
+    rhs=150
+))
+
+# Max 3 servings of Cod per week
+cod_weekly_coefs = create_single_food_coefs("Cod")
+diet_constraints.append(Constraint(
+    coefficients=cod_weekly_coefs,
+    type="<=",
+    rhs=115 * 3
+))
+
+# Max 3 servings of Salmon per week
+salmon_weekly_coefs = create_single_food_coefs("Salmon")
+diet_constraints.append(Constraint(
+    coefficients=salmon_weekly_coefs,
+    type="<=",
+    rhs=140 * 3
+))
+################################## WEEKLY LIMITS ##################################
+
+################################## WEEKLY MINIMUMS ##################################
+# Min 400 g beef per week
+beef_coefs = create_single_food_coefs("Beef")
+diet_constraints.append(Constraint(
+    coefficients=beef_coefs,
     type=">=",
-    rhs=150.0 * 7
-    )
-
-fat_coefs = [f.fat for f in foods.values()]
-fat_constraint = Constraint(
-    coefficients=np.array(fat_coefs),
-    type=">=",
-    rhs=75.0 * 7
-    )
-
-protein_coefs = [f.protein for f in foods.values()]
-protein_constraint = Constraint(
-    coefficients=np.array(protein_coefs),
-    type=">=",
-    rhs=170.0 * 7
-    )
-
-# banana constraint
-banana_coefs = np.zeros(len(foods))
-idx = list(foods.keys()).index("Banana")
-banana_coefs[idx] = 1
-banana_constraint = Constraint(
-    coefficients=np.array(banana_coefs),
-    type="<=",
-    rhs=2.0 * 7
-)
-
-# protein powder constraint
-protein_powder_coefs = np.zeros(len(foods))
-idx = list(foods.keys()).index("Protein Powder")
-protein_powder_coefs[idx] = 1
-protein_powder_constraint = Constraint(
-    coefficients=np.array(protein_powder_coefs),
-    type="<=",
-    rhs=1.0 * 7
-)
-
-# smoothie mix constraint
-smoothie_mix_coefs = np.zeros(len(foods))
-idx = list(foods.keys()).index("Organic Super Smoothie Mix")
-smoothie_mix_coefs[idx] = 1
-smoothie_mix_constraint = Constraint(
-    coefficients=np.array(smoothie_mix_coefs),
-    type="<=",
-    rhs=1.0 * 7
-)
-
-# mahi mahi constraint
-mahi_mahi_coefs = np.zeros(len(foods))
-idx = list(foods.keys()).index("Mahi Mahi")
-mahi_mahi_coefs[idx] = 1
-mahi_mahi_constraint = Constraint(
-    coefficients=np.array(mahi_mahi_coefs),
-    type="<=",
-    rhs=150.0 * 1
-)
-
-# cod constraint
-cod_coefs = np.zeros(len(foods))
-idx = list(foods.keys()).index("Cod")
-cod_coefs[idx] = 1
-cod_constraint = Constraint(
-    coefficients=np.array(cod_coefs),
-    type="<=",
-    rhs=115.0 * 3
-)
-
-# salmon constraint
-salmon_coefs = np.zeros(len(foods))
-idx = list(foods.keys()).index("Salmon")
-salmon_coefs[idx] = 1
-salmon_constraint = Constraint(
-    coefficients=np.array(salmon_coefs),
-    type="<=",
-    rhs=146.0 * 3
-)
-
-# beef constraint
-beef_coefs = np.zeros(len(foods))
-idx = list(foods.keys()).index("Beef")
-beef_coefs[idx] = 1
-beef_constraint = Constraint(
-    coefficients=np.array(beef_coefs),
-    type=">=",
-    rhs=200.0 * 2
-)
-
-# egg constraint
-egg_coefs = np.zeros(len(foods))
-idx = list(foods.keys()).index("Egg")
-egg_coefs[idx] = 1
-egg_constraint = Constraint(
-    coefficients=np.array(egg_coefs),
-    type=">=",
-    rhs=4.0 * 7
-)
-
-# rice constraint
-rice_coefs = np.zeros(len(foods))
-idx = list(foods.keys()).index("White Rice")
-rice_coefs[idx] = 1
-rice_constraint = Constraint(
-    coefficients=np.array(rice_coefs),
-    type="<=",
-    rhs=0.0
-)
-
-# creamer constraint
-creamer_coefs = np.zeros(len(foods))
-idx = list(foods.keys()).index("Creamer")
-creamer_coefs[idx] = 1
-creamer_constraint = Constraint(
-    coefficients=np.array(creamer_coefs),
-    type="<=",
-    rhs=0.0
-)
-
-# creamer constraint
-milk_coefs = np.zeros(len(foods))
-idx = list(foods.keys()).index("Milk")
-milk_coefs[idx] = 1
-milk_constraint = Constraint(
-    coefficients=np.array(milk_coefs),
-    type=">=",
-    rhs=230.0 * 7
-)
-
-diet_constraints=[
-            carb_constraint,
-            fat_constraint,
-            protein_constraint,
-            # banana_constraint,
-            # protein_powder_constraint,
-            # smoothie_mix_constraint,
-            # mahi_mahi_constraint,
-            # cod_constraint,
-            # salmon_constraint,
-            # beef_constraint,
-            # egg_constraint,
-            # rice_constraint,
-            # creamer_constraint,
-            # milk_constraint
-            ]
+    rhs=400
+))

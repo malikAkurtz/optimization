@@ -105,9 +105,10 @@ class System():
             # 2) Add the new row to thex bottom of our system
             self.A = np.append(self.A, np.array([phase_1_obj_row]), axis=0)
                    
-            # 3) Clear their corresponding columns
-            for row_idx, col_idx in zip(self.artifical_var_rows, self.artifical_var_idx):
-                self._clear_col(pivot_row_idx=row_idx, pivot_col_idx=col_idx)
+            # 3) Clear ALL current basic variable columns
+            for row_idx in range(self.num_constraints):
+                basic_var = self.cur_basic_vars[row_idx]
+                self._clear_col(pivot_row_idx=row_idx, pivot_col_idx=basic_var)
                 
             # 4) Run simplex to minimize phase 1 objective
             optimal_vals, optimal_z = self._simplex(obj_row_idx=-1)
@@ -165,7 +166,7 @@ class System():
         while True:
             # Find the new basic variable
             most_negative_col_idx = 0
-            most_negative_val = self.A[obj_row_idx][most_negative_col_idx]
+            most_negative_val = 0
             
             for i in range(self.num_vars):
                 obj_row = self.A[obj_row_idx]
@@ -177,7 +178,7 @@ class System():
                     most_negative_col_idx = i
                     
             # if after checking all columns, there are no negative values
-            if most_negative_val >= 0:
+            if most_negative_val >= -1e-9:
                 # then we are done running the Simplex algorithm
                 break
             # Otherwise, we need to alter the basic variables, clear the 
@@ -231,38 +232,3 @@ class System():
             optimal_z *= -1
                         
         return optimal_vals, optimal_z
-
-def main():
-    
-    system = System(
-        num_decision_vars=len(foods),
-        constraints=diet_constraints,
-        objective=obj
-        )
-    
-    # 1) Make sure we are maximizing an objective, transform if necessary
-    system._verify_objective()
-    print(system.A)
-    # 2) Ensure the RHS >= 0
-    system._ensure_positve_rhs()
-    print(system.A)
-    # 3) Put system in standard form
-    system._standardize()
-    print(system.A)
-    # 4) Run Phase 1
-    system._phase_1()
-    print(system.A)
-    # 5) Run Phase 2
-    optimal_vals, optimal_z = system._phase_2()
-    print(system.A)
-    
-    for idx, val in enumerate(optimal_vals):
-        if val > 0:
-            if idx < system.num_decision_vars:
-                food_item = foods[food_keys[idx]]
-                print(f"{food_item.name} = {val} {food_item.units}")
-        
-    print(f"Optimal Calorie Count: {optimal_z} ")
-    
-if __name__=="__main__":
-    main()
