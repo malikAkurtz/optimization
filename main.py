@@ -1,4 +1,5 @@
 from Simplex import System
+from config import METRIC
 from constraints import NUM_FOODS, NUM_DAYS, diet_constraints, obj
 from foods import foods, food_keys
 from utils import get_var_idx
@@ -11,16 +12,7 @@ def main():
         objective=obj
     )
     
-    # 1) Make sure we are maximizing an objective, transform if necessary
-    system._verify_objective()
-    # 2) Ensure the RHS >= 0
-    system._ensure_positve_rhs()
-    # 3) Put system in standard form
-    system._standardize()
-    # 4) Run Phase 1
-    system._phase_1()
-    # 5) Run Phase 2
-    optimal_vals, optimal_z = system._phase_2()
+    optimal_vals, optimal_z = system.solve()
     
     if optimal_vals is None:
         print("No optimal solution found!")
@@ -62,7 +54,7 @@ def main():
         print(f"    Protein:  {day_protein:8.2f} g")
     
     print("\n" + "="*70)
-    print(f"TOTAL WEEKLY CALORIES: {optimal_z:.2f} kcal")
+    print(f"TOTAL WEEKLY {METRIC}: {optimal_z:.2f}")
     print("="*70)
 
 if __name__ == "__main__":

@@ -20,10 +20,20 @@ class System():
         self.obj_flipped        = False
         
         self.A                  = None
-        self.cur_basic_vars     = [None] * self.num_constraints
+        self.cur_basic_vars     = [None] * self.num_constraints    
         
-        self.optimal_obj_val    = None
-        self.optimal_var_vals   = None
+    def solve(self):
+        # 1) Make sure we are maximizing an objective, transform if necessary
+        self._verify_objective()
+        # 2) Ensure the RHS >= 0
+        self._ensure_positve_rhs()
+        # 3) Put system in standard form
+        self._standardize()
+        # 4) Run Phase 1
+        if self._phase_1() is False:
+            return None, None
+        # 5) Run Phase 2
+        return self._phase_2()
         
     def _verify_objective(self):
         # If the objective is to minimize, we have to transform it
@@ -112,10 +122,13 @@ class System():
                 
             # 4) Run simplex to minimize phase 1 objective
             optimal_vals, optimal_z = self._simplex(obj_row_idx=-1)
+            
+            # If Phase 1 objective is still not 0, problem is unfeasible
             if not np.isclose(optimal_z, 0):
                 print("Problem is Unfeasible!")
-                return
-    
+                return False
+            return True
+
     def _phase_2(self):
         # 1) Add Phase 2 objective row to the bottom of A
         phase_2_obj_coefs     = np.append(self.objective.coefficients, np.zeros(self.num_slack_vars + self.num_artifical_vars))

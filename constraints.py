@@ -1,26 +1,59 @@
 import numpy as np
 from Constraint import Constraint
 from Objective import Objective
-from config import NUM_DAYS, NUM_FOODS
+from config import METRIC, OBJECTIVE, NUM_DAYS, NUM_FOODS
 from foods import foods, food_keys
 from utils import get_var_idx, create_daily_nutrient_coefs, create_single_food_coefs
 
 # Total decision variables: NUM_FOODS * NUM_DAYS
 # Variables ordered as: [food1_day1, food1_day2, ..., food1_day7, food2_day1, ..., foodN_day7]
 
-# OBJECTIVE: Minimize total weekly calories
 calorie_coefs = np.zeros(NUM_FOODS * NUM_DAYS)
 for food_name in food_keys:
     for day in range(NUM_DAYS):
-        var_idx = get_var_idx(food_name, day)
-        calorie_coefs[var_idx] = foods[food_name].calories
-
-obj = Objective(
-    coefficients=calorie_coefs,
-    obj="min"
-)
-
+        calorie_coefs[get_var_idx(food_name, day)] = foods[food_name].calories
+        
+cost_coefs = np.zeros(NUM_FOODS * NUM_DAYS)
+for food_name in food_keys:
+    for day in range(NUM_DAYS):
+        cost_coefs[get_var_idx(food_name, day)] = foods[food_name].price
+    
 diet_constraints = []
+
+obj = None
+
+if METRIC == "CALORIES":
+    if OBJECTIVE == "MIN":
+        obj = Objective(
+            coefficients=calorie_coefs,
+            obj="min"
+        )
+    elif OBJECTIVE == "MAX":
+        obj = Objective(
+            coefficients=calorie_coefs,
+            obj="max"
+        )
+    diet_constraints.append(Constraint(
+        coefficients=cost_coefs,
+        type="<=",
+        rhs=100.0
+    ))
+elif METRIC == "COST":
+    if OBJECTIVE == "MIN":
+        obj = Objective(
+            coefficients=cost_coefs,
+            obj="min"
+        )
+    elif OBJECTIVE == "MAX":
+        obj = Objective(
+            coefficients=cost_coefs,
+            obj="min"
+        )
+    diet_constraints.append(Constraint(
+        coefficients=calorie_coefs,
+        type="<=",
+        rhs=(2000.0 * 7)
+    ))
 
 ############################## DAILY MACRONUTRIENT CONSTRAINTS ##############################
 for day in range(NUM_DAYS):

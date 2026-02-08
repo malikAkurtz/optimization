@@ -14,7 +14,7 @@ def get_var_idx(food_name: str, day: int) -> int:
 # Helper function to create coefs for e.g. monday_carbs
 def create_daily_nutrient_coefs(day: int, nutrient: str):
     """
-    Create the coefficients corresponding to a particular nutrient for a particular day
+    Create the coefficients corresponding to a particular nutrient/item for a particular day
     day: 0-6 (Monday-Sunday)
     """
     # Create coefficient vector
