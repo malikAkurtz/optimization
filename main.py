@@ -1,4 +1,4 @@
-from Simplex import System
+from System import System
 from config import METRIC
 from constraints import NUM_FOODS, NUM_DAYS, diet_constraints, obj
 from foods import foods, food_keys

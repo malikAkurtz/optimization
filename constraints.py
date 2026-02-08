@@ -36,7 +36,7 @@ if METRIC == "CALORIES":
     diet_constraints.append(Constraint(
         coefficients=cost_coefs,
         type="<=",
-        rhs=100.0
+        rhs=100.0 # This value is your weekly budget
     ))
 elif METRIC == "COST":
     if OBJECTIVE == "MIN":
@@ -52,7 +52,7 @@ elif METRIC == "COST":
     diet_constraints.append(Constraint(
         coefficients=calorie_coefs,
         type="<=",
-        rhs=(2000.0 * 7)
+        rhs=(2000.0 * 7) # Number of total calories per week
     ))
 
 ############################## DAILY MACRONUTRIENT CONSTRAINTS ##############################

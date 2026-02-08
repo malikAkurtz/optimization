@@ -1,5 +1,5 @@
 import numpy as np
-from Simplex import System
+from System import System
 from Objective import Objective
 from Constraint import Constraint
 
