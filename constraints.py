@@ -22,6 +22,7 @@ diet_constraints = []
 
 obj = None
 
+############################## OBJECTIVES ##############################
 if METRIC == "CALORIES":
     if OBJECTIVE == "MIN":
         obj = Objective(
@@ -54,6 +55,7 @@ elif METRIC == "COST":
         type="<=",
         rhs=(2000.0 * 7) # Number of total calories per week
     ))
+############################## OBJECTIVES ##############################
 
 ############################## DAILY MACRONUTRIENT CONSTRAINTS ##############################
 for day in range(NUM_DAYS):
@@ -83,7 +85,7 @@ for day in range(NUM_DAYS):
 ############################## DAILY MACRONUTRIENT CONSTRAINTS ##############################
 
 
-################################## DAILY LIMITS ##################################
+################################## DAILY LIMITS/REQUIREMENTS ##################################
 for day in range(NUM_DAYS):
     # Max 2 bananas per day
     banana_daily_coefs = np.zeros(NUM_FOODS * NUM_DAYS)
@@ -120,6 +122,51 @@ for day in range(NUM_DAYS):
         type="<=",
         rhs=200.0
     ))
+    
+    # Max of 2 filets of salmon per day
+    salmon_daily_coefs = np.zeros(NUM_FOODS * NUM_DAYS)
+    salmon_daily_coefs[get_var_idx("Salmon", day)] = 1
+    diet_constraints.append(Constraint(
+        coefficients=salmon_daily_coefs,
+        type="<=",
+        rhs=140.0 
+    ))
+    
+    # Max of 2 cups of vegetables per day
+    veggies_daily_coefs = np.zeros(NUM_FOODS * NUM_DAYS)
+    veggies_daily_coefs[get_var_idx("Normandy Vegetables", day)] = 1
+    diet_constraints.append(Constraint(
+        coefficients=veggies_daily_coefs,
+        type="<=",
+        rhs=100.0 * 2 # roughly 100 g per cup
+    ))
+    
+    # 100 g blueberries per day
+    blueberries_daily_coefs = np.zeros(NUM_FOODS * NUM_DAYS)
+    blueberries_daily_coefs[get_var_idx("Blueberries", day)] = 1
+    diet_constraints.append(Constraint(
+        coefficients=blueberries_daily_coefs,
+        type="=",
+        rhs=100.0
+    ))
+    
+    # Max of 200 g greek yogurt per day
+    greek_yogurt_daily_coefs = np.zeros(NUM_FOODS * NUM_DAYS)
+    greek_yogurt_daily_coefs[get_var_idx("Greek Yogurt (Nonfat)", day)] = 1
+    diet_constraints.append(Constraint(
+        coefficients=greek_yogurt_daily_coefs,
+        type="<=",
+        rhs=200.0
+    ))
+    
+    # Max of 100 g spinach per day
+    spinach_daily_coefs = np.zeros(NUM_FOODS * NUM_DAYS)
+    spinach_daily_coefs[get_var_idx("Spinach (Frozen)", day)] = 1
+    diet_constraints.append(Constraint(
+        coefficients=spinach_daily_coefs,
+        type="<=",
+        rhs=100.0
+    ))
 ################################## DAILY LIMITS ##################################
 
 ################################## WEEKLY LIMITS ##################################
@@ -137,6 +184,22 @@ diet_constraints.append(Constraint(
     coefficients=cod_weekly_coefs,
     type="<=",
     rhs=115 * 3
+))
+
+# Max 700 g spinach per week
+spinach_weekly_coefs = create_single_food_coefs("Spinach (Frozen)")
+diet_constraints.append(Constraint(
+    coefficients=spinach_weekly_coefs,
+    type="<=",
+    rhs=700
+))
+
+# Max 1400 g greek yogurt per week
+greek_yogurt_weekly_coefs = create_single_food_coefs("Greek Yogurt (Nonfat)")
+diet_constraints.append(Constraint(
+    coefficients=greek_yogurt_weekly_coefs,
+    type="<=",
+    rhs= 200.0 * 7
 ))
 ################################## WEEKLY LIMITS ##################################
 

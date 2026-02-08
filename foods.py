@@ -8,7 +8,7 @@ beef = Food(
     carbs=0, 
     fat=0.0706, 
     protein=0.2028
-    )
+)
 egg = Food(
     name="Egg",
     units="Eggs",
@@ -17,7 +17,7 @@ egg = Food(
     carbs=0, 
     fat=0.15, 
     protein=6
-    )
+)
 milk = Food(
     name="Milk",
     units="ml",
@@ -26,7 +26,7 @@ milk = Food(
     carbs=0.0338, 
     fat=0.0338,
     protein=0.0338,
-    )
+)
 chicken = Food(
     name="Chicken",
     units="g",
@@ -44,7 +44,7 @@ butter = Food(
     carbs=0.0, 
     fat=11,
     protein=0.0,
-    )
+)
 creamer = Food(
     name="Creamer",
     units="ml",
@@ -53,7 +53,7 @@ creamer = Food(
     carbs=0.3381, 
     fat=0.1014,
     protein=0.0,
-    )
+)
 smoked_salmon = Food(
     name="Smoked Salmon",
     units="g",
@@ -62,7 +62,7 @@ smoked_salmon = Food(
     carbs=0.0, 
     fat=0.0432,
     protein=0.183,
-    )
+)
 white_rice = Food(
     name="White Rice",
     units="g",
@@ -153,7 +153,42 @@ apple = Food(
     fat=0.3,
     protein=0.5
 )
-
+normandy_veggies = Food(
+    name="Normandy Vegetables",
+    units="g",
+    price=0.0040, 
+    calories=0.328,
+    carbs=0.057,
+    fat=0.003,
+    protein=0.024
+)
+blueberries = Food(
+    name="Blueberries",
+    units="g",
+    price=0.0117,      # $5.99 / 510g = $0.0117 per gram
+    calories=0.57,     # 57 kcal per 100g → 0.57 per gram
+    carbs=0.144,       # 14.4g per 100g → 0.144 per gram
+    fat=0.003,         # 0.3g per 100g → 0.003 per gram
+    protein=0.007      # 0.7g per 100g → 0.007 per gram
+)
+spinach_frozen = Food(
+    name="Spinach (Frozen)",
+    units="g",
+    price=0.0044,      # $4.99 / 1134g = $0.0044 per gram
+    calories=0.23,     # 23 kcal per 100g → 0.23 per gram
+    carbs=0.037,       # 3.7g per 100g → 0.037 per gram
+    fat=0.003,         # 0.3g per 100g → 0.003 per gram
+    protein=0.029      # 2.9g per 100g → 0.029 per gram
+)
+greek_yogurt = Food(
+    name="Greek Yogurt (Nonfat)",
+    units="g",
+    price=0.0037,      # $4.99 / 1361g = $0.0037 per gram
+    calories=0.59,     # 59 kcal per 100g → 0.59 per gram
+    carbs=0.038,       # 3.8g per 100g → 0.038 per gram
+    fat=0.0,           # 0g per 100g (nonfat)
+    protein=0.10       # 10g per 100g → 0.10 per gram
+)
 
 foods = {
     "Beef" : beef,
@@ -171,7 +206,12 @@ foods = {
     "Organic Super Smoothie Mix" : organic_super_smoothie,
     "Salmon" : salmon,
     "Mahi Mahi" : mahi_mahi,
-    "Cod" : cod
+    "Cod" : cod,
+    "Normandy Vegetables" : normandy_veggies,
+    "Blueberries" : blueberries,
+    "Spinach (Frozen)" : spinach_frozen,
+    "Greek Yogurt (Nonfat)" : greek_yogurt
+    
 }
 
 food_keys = list(foods.keys())
