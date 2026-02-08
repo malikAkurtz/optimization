@@ -36,7 +36,7 @@ if METRIC == "CALORIES":
     diet_constraints.append(Constraint(
         coefficients=cost_coefs,
         type="<=",
-        rhs=100.0 # This value is your weekly budget
+        rhs=500.0 # This value is your weekly budget
     ))
 elif METRIC == "COST":
     if OBJECTIVE == "MIN":
@@ -138,14 +138,6 @@ diet_constraints.append(Constraint(
     type="<=",
     rhs=115 * 3
 ))
-
-# Max 3 servings of Salmon per week
-salmon_weekly_coefs = create_single_food_coefs("Salmon")
-diet_constraints.append(Constraint(
-    coefficients=salmon_weekly_coefs,
-    type="<=",
-    rhs=140 * 3
-))
 ################################## WEEKLY LIMITS ##################################
 
 ################################## WEEKLY MINIMUMS ##################################
@@ -155,4 +147,14 @@ diet_constraints.append(Constraint(
     coefficients=beef_coefs,
     type=">=",
     rhs=400
+))
+################################## WEEKLY MINIMUMS ##################################
+
+################################## WEEKLY REQUIREMENTS ##################################
+# 3 servings salmon per week
+salmon_coefs = create_single_food_coefs("Salmon")
+diet_constraints.append(Constraint(
+    coefficients=salmon_coefs,
+    type="=",
+    rhs=140.0*3
 ))

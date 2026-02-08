@@ -56,6 +56,28 @@ def main():
     print("\n" + "="*70)
     print(f"TOTAL WEEKLY {METRIC}: {optimal_z:.2f}")
     print("="*70)
+    
+    # Calculate weekly shopping list
+    print("\n" + "="*70)
+    print("SHOPPING LIST")
+    print("="*70)
+    
+    total_weekly_cost = 0
+    
+    for food_name in food_keys:
+        weekly_food_amount = 0
+        for day in range(NUM_DAYS):
+            weekly_food_amount += optimal_vals[get_var_idx(food_name, day)]
+        
+        if weekly_food_amount > 0.01:  # Only show foods that are used
+            food = foods[food_name]
+            item_cost = weekly_food_amount * food.price
+            total_weekly_cost += item_cost
+            print(f"  {food_name:30s} {weekly_food_amount:8.2f} {food.units:8s} ${item_cost:7.2f}")
+    
+    print("-" * 70)
+    print(f"  {'TOTAL COST':30s} ${total_weekly_cost:7.2f}")
+    print("="*70)
 
 if __name__ == "__main__":
     main()
