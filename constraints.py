@@ -167,6 +167,24 @@ for day in range(NUM_DAYS):
         type="<=",
         rhs=100.0
     ))
+    
+    # Max of 100 g peanut butter per day
+    peanut_butter_daily_coefs = np.zeros(NUM_FOODS * NUM_DAYS)
+    peanut_butter_daily_coefs[get_var_idx("Peanut Butter", day)] = 1
+    diet_constraints.append(Constraint(
+        coefficients=peanut_butter_daily_coefs,
+        type="<=",
+        rhs=100.0
+    ))
+    
+    # Max of 40 g smoked salmon per day
+    smoked_salmon_daily_coefs = np.zeros(NUM_FOODS * NUM_DAYS)
+    smoked_salmon_daily_coefs[get_var_idx("Smoked Salmon", day)] = 1
+    diet_constraints.append(Constraint(
+        coefficients=smoked_salmon_daily_coefs,
+        type="<=",
+        rhs=40.0
+    ))
 ################################## DAILY LIMITS ##################################
 
 ################################## WEEKLY LIMITS ##################################

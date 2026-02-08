@@ -5,21 +5,22 @@ WEEKLY MEAL PLAN
 
 MONDAY:
 ----------------------------------------------------------------------
-  Beef                             200.00 g
-  White Rice                        24.20 g
+  Beef                             190.01 g
+  Smoked Salmon                     40.00 g
+  White Rice                        64.36 g
   Protein Powder                     1.00 scoops
-  Peanut Butter                    116.65 g
+  Peanut Butter                    100.00 g
   Banana                             2.00 Bananas
   Organic Super Smoothie Mix         1.00 pouches
+  Salmon                           140.00 g
   Mahi Mahi                        150.00 g
-  Cod                               75.48 g
+  Cod                                8.25 g
   Normandy Vegetables              200.00 g
   Blueberries                      100.00 g
   Spinach (Frozen)                 100.00 g
-  Greek Yogurt (Nonfat)            200.00 g
 
   Daily Totals:
-    Calories:  1887.06 kcal
+    Calories:  1887.47 kcal
     Carbs:      150.00 g
     Fat:         75.00 g
     Protein:    170.00 g
@@ -27,134 +28,141 @@ MONDAY:
 TUESDAY:
 ----------------------------------------------------------------------
   Beef                             200.00 g
-  White Rice                        21.99 g
+  Chicken                           11.28 g
+  Smoked Salmon                     40.00 g
+  White Rice                        64.36 g
   Protein Powder                     1.00 scoops
-  Peanut Butter                    119.48 g
+  Peanut Butter                    100.00 g
   Banana                             2.00 Bananas
   Organic Super Smoothie Mix         1.00 pouches
-  Cod                              215.34 g
+  Salmon                           140.00 g
+  Cod                              123.79 g
   Normandy Vegetables              200.00 g
   Blueberries                      100.00 g
   Spinach (Frozen)                 100.00 g
-  Greek Yogurt (Nonfat)            200.00 g
 
   Daily Totals:
-    Calories:  1889.50 kcal
+    Calories:  1891.70 kcal
     Carbs:      150.00 g
     Fat:         75.00 g
     Protein:    170.00 g
 
 WEDNESDAY:
 ----------------------------------------------------------------------
-  Chicken                          138.67 g
-  White Rice                        22.16 g
+  Beef                             200.00 g
+  Chicken                           11.28 g
+  Smoked Salmon                     40.00 g
+  White Rice                        64.36 g
   Protein Powder                     1.00 scoops
-  Peanut Butter                    119.27 g
+  Peanut Butter                    100.00 g
   Banana                             2.00 Bananas
   Organic Super Smoothie Mix         1.00 pouches
   Salmon                           140.00 g
-  Cod                               54.18 g
+  Cod                              123.79 g
   Normandy Vegetables              200.00 g
   Blueberries                      100.00 g
   Spinach (Frozen)                 100.00 g
-  Greek Yogurt (Nonfat)            200.00 g
 
   Daily Totals:
-    Calories:  1883.33 kcal
+    Calories:  1891.70 kcal
     Carbs:      150.00 g
     Fat:         75.00 g
     Protein:    170.00 g
 
 THURSDAY:
 ----------------------------------------------------------------------
-  Chicken                          177.71 g
-  White Rice                        25.72 g
+  Beef                             192.54 g
+  Chicken                          143.22 g
+  Smoked Salmon                     40.00 g
+  White Rice                        64.36 g
   Protein Powder                     1.00 scoops
-  Peanut Butter                    114.71 g
+  Peanut Butter                    100.00 g
   Banana                             2.00 Bananas
   Organic Super Smoothie Mix         1.00 pouches
-  Salmon                           140.00 g
+  Cod                               89.18 g
   Normandy Vegetables              200.00 g
   Blueberries                      100.00 g
   Spinach (Frozen)                 100.00 g
-  Greek Yogurt (Nonfat)            200.00 g
 
   Daily Totals:
-    Calories:  1886.42 kcal
+    Calories:  1900.84 kcal
     Carbs:      150.00 g
     Fat:         75.00 g
     Protein:    170.00 g
 
 FRIDAY:
 ----------------------------------------------------------------------
-  Chicken                          177.71 g
-  White Rice                        25.72 g
+  Beef                              96.76 g
+  Chicken                          267.29 g
+  Smoked Salmon                     40.00 g
+  White Rice                        64.36 g
   Protein Powder                     1.00 scoops
-  Peanut Butter                    114.71 g
+  Peanut Butter                    100.00 g
   Banana                             2.00 Bananas
   Organic Super Smoothie Mix         1.00 pouches
-  Salmon                           140.00 g
   Normandy Vegetables              200.00 g
   Blueberries                      100.00 g
   Spinach (Frozen)                 100.00 g
-  Greek Yogurt (Nonfat)            200.00 g
 
   Daily Totals:
-    Calories:  1886.42 kcal
+    Calories:  1902.14 kcal
     Carbs:      150.00 g
     Fat:         75.00 g
     Protein:    170.00 g
 
 SATURDAY:
 ----------------------------------------------------------------------
-  Chicken                          280.05 g
-  White Rice                        23.90 g
+  Beef                              96.76 g
+  Chicken                          267.29 g
+  Smoked Salmon                     40.00 g
+  White Rice                        64.36 g
   Protein Powder                     1.00 scoops
-  Peanut Butter                    117.03 g
+  Peanut Butter                    100.00 g
   Banana                             2.00 Bananas
   Organic Super Smoothie Mix         1.00 pouches
   Normandy Vegetables              200.00 g
   Blueberries                      100.00 g
   Spinach (Frozen)                 100.00 g
-  Greek Yogurt (Nonfat)            200.00 g
 
   Daily Totals:
-    Calories:  1893.88 kcal
+    Calories:  1902.14 kcal
     Carbs:      150.00 g
     Fat:         75.00 g
     Protein:    170.00 g
 
 SUNDAY:
 ----------------------------------------------------------------------
-  Chicken                          280.05 g
-  White Rice                        23.90 g
+  Beef                              96.76 g
+  Chicken                          267.29 g
+  Smoked Salmon                     40.00 g
+  White Rice                        64.36 g
   Protein Powder                     1.00 scoops
-  Peanut Butter                    117.03 g
+  Peanut Butter                    100.00 g
   Banana                             2.00 Bananas
   Organic Super Smoothie Mix         1.00 pouches
   Normandy Vegetables              200.00 g
   Blueberries                      100.00 g
   Spinach (Frozen)                 100.00 g
-  Greek Yogurt (Nonfat)            200.00 g
 
   Daily Totals:
-    Calories:  1893.88 kcal
+    Calories:  1902.14 kcal
     Carbs:      150.00 g
     Fat:         75.00 g
     Protein:    170.00 g
 
 ======================================================================
-TOTAL WEEKLY CALORIES: 13220.50
+TOTAL WEEKLY CALORIES: 13278.15
 ======================================================================
 
 ======================================================================
 SHOPPING LIST
 ======================================================================
-  Beef                             400.00 g        $   4.41
-  Chicken                         1054.19 g        $   7.91
-  White Rice                       167.60 g        $   0.30
+  Beef                            1072.84 g        $  11.82
+  Chicken                          967.67 g        $   7.26
+  Smoked Salmon                    280.00 g        $   9.47
+  White Rice                       450.50 g        $   0.79
   Protein Powder                     7.00 scoops   $   5.25
-  Peanut Butter                    818.88 g        $   4.53
+  Peanut Butter                    700.00 g        $   3.87
   Banana                            14.00 Bananas  $   3.98
   Organic Super Smoothie Mix         7.00 pouches  $  15.16
   Salmon                           420.00 g        $  14.01
@@ -163,7 +171,6 @@ SHOPPING LIST
   Normandy Vegetables             1400.00 g        $   5.60
   Blueberries                      700.00 g        $   8.19
   Spinach (Frozen)                 700.00 g        $   3.08
-  Greek Yogurt (Nonfat)           1400.00 g        $   5.18
 ----------------------------------------------------------------------
-  TOTAL COST                     $  88.70
+  TOTAL COST                     $  99.59
 ======================================================================
