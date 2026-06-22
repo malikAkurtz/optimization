@@ -36,7 +36,7 @@ def test_ex_geometric():
     
     lp.optimize()
     
-    assert Tableau.get_solution(lp.tableau)[:lp.num_decision_vars] == (6.0, 2.0), "Geometric example fail."
+    assert lp.solution[:lp.num_decision_vars] == (6.0, 2.0), "Geometric example fail."
     
 def test_ex_2_1():
     obj = Objective(
@@ -64,7 +64,7 @@ def test_ex_2_1():
     
     lp.optimize()
     
-    assert Tableau.get_solution(lp.tableau)[:lp.num_decision_vars] == (2.0, 0.0, 1.0, 0.0), "Exercise 2.1 fail."
+    assert lp.solution[:lp.num_decision_vars] == (2.0, 0.0, 1.0, 0.0), "Exercise 2.1 fail."
     
 def test_ex_2_2():
     obj = Objective(
@@ -102,7 +102,7 @@ def test_ex_2_2():
     
     lp.optimize()
     
-    assert Tableau.get_solution(lp.tableau)[:lp.num_decision_vars] == (1, 0), "Exercise 2.2 fail."
+    assert lp.solution[:lp.num_decision_vars] == (1, 0), "Exercise 2.2 fail."
     
 def test_ex_2_3():
     obj = Objective(
@@ -130,7 +130,7 @@ def test_ex_2_3():
     
     lp.optimize()
     
-    assert Tableau.get_solution(lp.tableau)[:lp.num_decision_vars] == (0, 1/2, 3/2), "Exercise 2.3 fail."
+    assert lp.solution[:lp.num_decision_vars] == (0, 1/2, 3/2), "Exercise 2.3 fail."
     
 def test_ex_2_6():
     obj = Objective(
@@ -233,7 +233,7 @@ def test_ex_notes():
     
     lp.optimize()
     
-    assert Tableau.get_solution(lp.tableau)[:lp.num_decision_vars] == (2/3, 1/3), "Exercise from notes sheet fail."
+    assert lp.solution[:lp.num_decision_vars] == (2/3, 1/3), "Exercise from notes sheet fail."
     
 def run_tests():
     print(f"*" * 20 + " Testing geometric example " + "*" * 20)

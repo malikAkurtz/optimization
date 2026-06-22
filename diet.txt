@@ -1,0 +1,149 @@
+******************** Day 0 Diet ********************
+Egg:                                            4.50 Eggs
+White Rice:                                    85.68 g
+Protein Powder:                                 1.00 scoops
+Peanut Butter:                                 25.00 g
+Banana:                                       200.00 g
+Organic Super Smoothie Mix:                     1.00 pouches
+Salmon:                                       134.20 g
+Cod:                                          250.00 g
+Apple:                                        250.00 g
+Normandy Vegetables:                          200.00 g
+Blueberries:                                  150.00 g
+Raw Spinach:                                   50.00 g
+Greek Yogurt (Nonfat):                        100.00 g
+Olive Oil:                                     14.70 ml
+-------------------- Day 0 Totals --------------------
+Total Calories:                                 1788
+Protein:                                         160 g
+Carbs:                                           175 g
+Fat:                                              55 g
+******************** Day 1 Diet ********************
+Beef:                                          74.97 g
+Egg:                                            4.83 Eggs
+Protein Powder:                                 1.00 scoops
+Peanut Butter:                                 25.00 g
+Banana:                                       200.00 g
+Organic Super Smoothie Mix:                     1.00 pouches
+Apple:                                        250.00 g
+Normandy Vegetables:                          200.00 g
+Blueberries:                                  150.00 g
+Raw Spinach:                                   50.00 g
+Greek Yogurt (Nonfat):                        731.32 g
+Olive Oil:                                     14.70 ml
+-------------------- Day 1 Totals --------------------
+Total Calories:                                 1800
+Protein:                                         160 g
+Carbs:                                           175 g
+Fat:                                              55 g
+******************** Day 2 Diet ********************
+Beef:                                         167.73 g
+Egg:                                            3.15 Eggs
+White Rice:                                    58.75 g
+Protein Powder:                                 1.00 scoops
+Peanut Butter:                                 25.00 g
+Banana:                                       200.00 g
+Organic Super Smoothie Mix:                     1.00 pouches
+Cod:                                          170.00 g
+Apple:                                        250.00 g
+Normandy Vegetables:                          200.00 g
+Blueberries:                                  150.00 g
+Raw Spinach:                                   50.00 g
+Greek Yogurt (Nonfat):                        298.42 g
+Olive Oil:                                     14.70 ml
+-------------------- Day 2 Totals --------------------
+Total Calories:                                 1800
+Protein:                                         160 g
+Carbs:                                           175 g
+Fat:                                              55 g
+******************** Day 3 Diet ********************
+Beef:                                           7.35 g
+Egg:                                            5.00 Eggs
+White Rice:                                     8.70 g
+Protein Powder:                                 1.00 scoops
+Peanut Butter:                                 25.00 g
+Banana:                                       200.00 g
+Organic Super Smoothie Mix:                     1.00 pouches
+Salmon:                                        85.80 g
+Apple:                                        250.00 g
+Normandy Vegetables:                          200.00 g
+Blueberries:                                  150.00 g
+Raw Spinach:                                   50.00 g
+Greek Yogurt (Nonfat):                        667.22 g
+Olive Oil:                                     14.70 ml
+-------------------- Day 3 Totals --------------------
+Total Calories:                                 1795
+Protein:                                         160 g
+Carbs:                                           175 g
+Fat:                                              55 g
+******************** Day 4 Diet ********************
+Egg:                                            3.75 Eggs
+White Rice:                                    31.49 g
+Protein Powder:                                 1.00 scoops
+Peanut Butter:                                 25.00 g
+Banana:                                       200.00 g
+Organic Super Smoothie Mix:                     1.00 pouches
+Salmon:                                       200.00 g
+Apple:                                        250.00 g
+Normandy Vegetables:                          200.00 g
+Blueberries:                                  150.00 g
+Raw Spinach:                                   50.00 g
+Greek Yogurt (Nonfat):                        499.28 g
+Olive Oil:                                     14.70 ml
+-------------------- Day 4 Totals --------------------
+Total Calories:                                 1789
+Protein:                                         160 g
+Carbs:                                           175 g
+Fat:                                              55 g
+******************** Day 5 Diet ********************
+Beef:                                          74.97 g
+Egg:                                            4.83 Eggs
+Protein Powder:                                 1.00 scoops
+Peanut Butter:                                 25.00 g
+Banana:                                       200.00 g
+Organic Super Smoothie Mix:                     1.00 pouches
+Apple:                                        250.00 g
+Normandy Vegetables:                          200.00 g
+Blueberries:                                  150.00 g
+Raw Spinach:                                   50.00 g
+Greek Yogurt (Nonfat):                        731.32 g
+Olive Oil:                                     14.70 ml
+-------------------- Day 5 Totals --------------------
+Total Calories:                                 1800
+Protein:                                         160 g
+Carbs:                                           175 g
+Fat:                                              55 g
+******************** Day 6 Diet ********************
+Beef:                                          74.97 g
+Egg:                                            4.83 Eggs
+Protein Powder:                                 1.00 scoops
+Peanut Butter:                                 25.00 g
+Banana:                                       200.00 g
+Organic Super Smoothie Mix:                     1.00 pouches
+Apple:                                        250.00 g
+Normandy Vegetables:                          200.00 g
+Blueberries:                                  150.00 g
+Raw Spinach:                                   50.00 g
+Greek Yogurt (Nonfat):                        731.32 g
+Olive Oil:                                     14.70 ml
+-------------------- Day 6 Totals --------------------
+Total Calories:                                 1800
+Protein:                                         160 g
+Carbs:                                           175 g
+Fat:                                              55 g
+==================== Required Inventory ====================
+Beef:                                         400.00 g
+Egg:                                           30.90 Eggs
+White Rice:                                   184.62 g
+Protein Powder:                                 7.00 scoops
+Peanut Butter:                                175.00 g
+Banana:                                      1400.00 g
+Organic Super Smoothie Mix:                     7.00 pouches
+Salmon:                                       420.00 g
+Cod:                                          420.00 g
+Apple:                                       1750.00 g
+Normandy Vegetables:                         1400.00 g
+Blueberries:                                 1050.00 g
+Raw Spinach:                                  350.00 g
+Greek Yogurt (Nonfat):                       3758.87 g
+Olive Oil:                                    102.90 ml

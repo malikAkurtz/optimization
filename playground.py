@@ -16,5 +16,12 @@ def main():
     print("Shallow copy: ")
     print(shallow_copy)
     
+def main1():
+    arr = [1.0, 2.0]
+    
+    new_arr = arr * 5
+    
+    print(new_arr)
+    
 if __name__=="__main__":
-    main()
+    main1()

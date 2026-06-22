@@ -4,6 +4,8 @@ from Objective import Objective
 from Constraint import Constraint
 from Tableau import Tableau
 
+from Debug import DEBUG, PRINT_DEBUG
+
 class LinearProgram():
     def __init__(self, objective: Objective, constraints: list[Constraint]) -> None:
         self.constraints        = constraints
@@ -13,8 +15,7 @@ class LinearProgram():
         
         for i in range(self.num_constraints):
             if self.constraints[i].coeffs.size != self.num_decision_vars:
-                print("ERROR: Coefficient vectors are inconsistent.")
-                return -1
+                raise RuntimeError("Coefficient vectors are inconsistent.")
         
         self.phase_2_objective   = objective
         
@@ -25,6 +26,8 @@ class LinearProgram():
         self.num_vars            = None
         
         self.tableau = None
+        
+        self.solution = None
         
     @staticmethod
     def flip_type(type: str):
@@ -192,54 +195,54 @@ class LinearProgram():
         return tableau
                 
     def optimize(self):
-        print("Putting LP in standard form.")
+        PRINT_DEBUG("Putting LP in standard form.")
         self.standardize()
         
-        print("Constraints: ")
+        PRINT_DEBUG("Constraints: ")
         for i in range(self.num_constraints):
             c = self.constraints[i]
             
-            print("*" * 10 + f"Constraint {i}" + "*" * 10)
-            print(c.coeffs)
-            print(c.type)
-            print(c.rhs)
+            PRINT_DEBUG("*" * 10 + f"Constraint {i}" + "*" * 10)
+            PRINT_DEBUG(c.coeffs)
+            PRINT_DEBUG(c.type)
+            PRINT_DEBUG(c.rhs)
         
-        print("Adding slack variables.")
+        PRINT_DEBUG("Adding slack variables.")
         self.add_slack_variables()
-        print(f"# Slack variables: {self.num_slack_vars}")
+        PRINT_DEBUG(f"# Slack variables: {self.num_slack_vars}")
         
-        print("Adding artificial_variables.")
+        PRINT_DEBUG("Adding artificial_variables.")
         self.add_artificial_variables()
-        print(f"# Artificial variables: {self.num_artificial_vars}")
+        PRINT_DEBUG(f"# Artificial variables: {self.num_artificial_vars}")
         
-        print(f"# Total variables: {self.num_vars}")
+        PRINT_DEBUG(f"# Total variables: {self.num_vars}")
         
-        print("Constructing initial tableau.")
+        PRINT_DEBUG("Constructing initial tableau.")
         self.tableau = self.create_initial_tableau()
-        print("Initial Tableau: ")
-        print(self.tableau.matrix)
-        print("Basic variables: ")
-        print(self.tableau.basic_vars)
+        PRINT_DEBUG("Initial Tableau: ")
+        PRINT_DEBUG(self.tableau.matrix)
+        PRINT_DEBUG("Basic variables: ")
+        PRINT_DEBUG(self.tableau.basic_vars)
         
-        print("Ensuring unit columns for basic variables.")
+        PRINT_DEBUG("Ensuring unit columns for basic variables.")
         self.tableau.matrix = Tableau.clear_columns(tableau=self.tableau)
         
-        print("Tableau pre-Phase 1:")
-        print(self.tableau.matrix)
+        PRINT_DEBUG("Tableau pre-Phase 1:")
+        PRINT_DEBUG(self.tableau.matrix)
         
-        print("Beginning Phase 1.")
+        PRINT_DEBUG("Beginning Phase 1.")
         self.tableau = Tableau.simplex(tableau=self.tableau)
-        print("Phase 1 concluded.")
+        PRINT_DEBUG("Phase 1 concluded.")
         
-        print("Tableau post-Phase 1: ")
-        print(self.tableau.matrix)
+        PRINT_DEBUG("Tableau post-Phase 1: ")
+        PRINT_DEBUG(self.tableau.matrix)
         
         problem_is_feasible = Tableau.objective_is_zero(tableau=self.tableau)
         if not problem_is_feasible:
-            print("Problem is not feasible.")
+            PRINT_DEBUG("Problem is not feasible.")
             raise RuntimeError("Problem is infeasible.")
         else:
-            print("Problem is feasible.")
+            PRINT_DEBUG("Problem is feasible.")
             self.tableau.matrix = Tableau.phase_2_prep(
                 tableau=self.tableau,
                 num_artificial_vars=self.num_artificial_vars
@@ -247,14 +250,15 @@ class LinearProgram():
             self.num_vars -= self.num_artificial_vars
             self.num_artificial_vars = 0
             
-        print("Trimmed tableau post Phase 1: ")
-        print(self.tableau.matrix)
+        PRINT_DEBUG("Trimmed tableau post Phase 1: ")
+        PRINT_DEBUG(self.tableau.matrix)
         
-        print("Beginning Phase 2.")
+        PRINT_DEBUG("Beginning Phase 2.")
         self.tableau = Tableau.simplex(tableau=self.tableau)
-        print("Phase 2 concluded.")
-        print("Final tableau:")
-        print(self.tableau.matrix)
+        PRINT_DEBUG("Phase 2 concluded.")
+        PRINT_DEBUG("Final tableau:")
+        PRINT_DEBUG(self.tableau.matrix)
         
-        print("Solution:")
-        print(self.tableau.get_solution(tableau=self.tableau))
+        PRINT_DEBUG("Solution:")
+        self.solution = Tableau.get_solution(self.tableau)
+        PRINT_DEBUG(self.solution)

@@ -1,10 +1,9 @@
 from __future__ import annotations
 import numpy as np
 
-from Objective import Objective
-from Constraint import Constraint
-
 import copy
+
+from Debug import DEBUG, PRINT_DEBUG
 
 class Tableau():
     def __init__(self, matrix: np.ndarray, basic_vars: list[int]):
@@ -17,37 +16,37 @@ class Tableau():
         
         # Loop through columns belonging to basic variables
         for i, variable in enumerate(tableau.basic_vars):
-            # print(f"Row {i} corresponds to variable {variable}")
+            PRINT_DEBUG(f"Row {i} corresponds to variable {variable}")
             # Ensure the variables column is a unit vector
             variable_column = tableau.matrix[:, variable]
             unit_vector = np.eye(len(tableau.matrix))[i]
             
-            # print("Variable column:")
-            # print(variable_column)
-            # print("Should be: ")
-            # print(unit_vector)
+            PRINT_DEBUG("Variable column:")
+            PRINT_DEBUG(variable_column)
+            PRINT_DEBUG("Should be: ")
+            PRINT_DEBUG(unit_vector)
             
             if np.allclose(variable_column, unit_vector):
-                # print("Variable column is unit vector, moving on.")
+                PRINT_DEBUG("Variable column is unit vector, moving on.")
                 continue
             else:
-                # print("Variable column isn't unit vector, adding to obj row.")
+                PRINT_DEBUG("Variable column isn't unit vector, adding to obj row.")
                 new_matrix[-1] += tableau.matrix[i]
                 
         return new_matrix
     
     @staticmethod
     def ratio_test(coeff_vector: np.ndarray, rhs_vector: np.ndarray, basic_vars: np.ndarray) -> int:
-        print("Performing ratio test.")
+        PRINT_DEBUG("Performing ratio test.")
         
-        print("Coefficients: ")
-        print(coeff_vector)
+        PRINT_DEBUG("Coefficients: ")
+        PRINT_DEBUG(coeff_vector)
         
-        print("RHS: ")
-        print(rhs_vector)
+        PRINT_DEBUG("RHS: ")
+        PRINT_DEBUG(rhs_vector)
         
         if coeff_vector.shape != rhs_vector.shape:
-            print("ERROR: Coefficient vector and RHS vector have inconsistent shapes.")
+            PRINT_DEBUG("ERROR: Coefficient vector and RHS vector have inconsistent shapes.")
             return -1
         
         num_basic_vars = coeff_vector.size
@@ -55,11 +54,11 @@ class Tableau():
         ratios = [rhs_vector[i] / coeff_vector[i] if (coeff_vector[i] > 0.0) else np.inf for i in range(num_basic_vars)]
         ratios = np.array(ratios)
         
-        print("Ratios: ")
-        print(ratios)
+        PRINT_DEBUG("Ratios: ")
+        PRINT_DEBUG(ratios)
         
         if np.allclose(ratios, np.array([np.inf] * num_basic_vars)):
-            print("Problem is unbounded.")
+            PRINT_DEBUG("Problem is unbounded.")
             raise RuntimeError("Problem is unbounded.")
         else:
             # This is the index of the leaving variable in the basic_vars array
@@ -73,32 +72,32 @@ class Tableau():
     def pivot(tableau: Tableau, entering_variable: int, entering_variable_idx: int) -> np.ndarray:
         new_matrix = tableau.matrix.copy()
         
-        # print("Tableau coming into pivot function:")
-        # print(new_matrix)
+        PRINT_DEBUG("Tableau coming into pivot function:")
+        PRINT_DEBUG(new_matrix)
         
-        print(f"Entering variable is now at row: {entering_variable_idx}")
+        PRINT_DEBUG(f"Entering variable is now at row: {entering_variable_idx}")
             
-        print(f"Dividing row {entering_variable_idx} by {new_matrix[entering_variable_idx][entering_variable]}")
+        PRINT_DEBUG(f"Dividing row {entering_variable_idx} by {new_matrix[entering_variable_idx][entering_variable]}")
         new_matrix[entering_variable_idx] = new_matrix[entering_variable_idx] / new_matrix[entering_variable_idx][entering_variable]
         
-        print("Tableau after normalization.")
-        print(new_matrix)
+        PRINT_DEBUG("Tableau after normalization.")
+        PRINT_DEBUG(new_matrix)
         
-        print("Performing pivot.")
+        PRINT_DEBUG("Performing pivot.")
         for i in range(tableau.matrix.shape[0]):
             if i == entering_variable_idx:
                 continue
             
-            print(f"Correcting row: {i}")
+            PRINT_DEBUG(f"Correcting row: {i}")
             
             scalar = new_matrix[i][entering_variable].item()
             
-            print(f"Row scalar: {scalar}")
+            PRINT_DEBUG(f"Row scalar: {scalar}")
                                 
             new_matrix[i] += (-1 * scalar * new_matrix[entering_variable_idx])
             
-        print("New tableau: ")
-        print(new_matrix)
+        PRINT_DEBUG("New tableau: ")
+        PRINT_DEBUG(new_matrix)
         
         return new_matrix
     
@@ -125,10 +124,10 @@ class Tableau():
             
             # If largest coefficient in obj row is <= 0, end simplex, BFS is optimal
             if c < 0 or np.isclose(c, 0):
-                print("Optimal solution found, terminating simplex.")
+                PRINT_DEBUG("Optimal solution found, terminating simplex.")
                 return new_tableau
             
-            print(f"Entering variable: {entering_variable}, c={c}")
+            PRINT_DEBUG(f"Entering variable: {entering_variable}, c={c}")
 
             # Determine the leaving variable
             leaving_variable = Tableau.ratio_test(
@@ -137,14 +136,14 @@ class Tableau():
                 basic_vars=new_tableau.basic_vars
             )
             
-            print(f"Leaving variable: {leaving_variable}")
+            PRINT_DEBUG(f"Leaving variable: {leaving_variable}")
             
             # Add entering variable to basic_vars in proper index
             leaving_variable_idx = new_tableau.basic_vars.index(leaving_variable)
             new_tableau.basic_vars[leaving_variable_idx] = entering_variable
             
-            print("New basic variables: ")
-            print(new_tableau.basic_vars)
+            PRINT_DEBUG("New basic variables: ")
+            PRINT_DEBUG(new_tableau.basic_vars)
             
             # Need to get the index of the entering variable in the tableau
             entering_variable_idx = new_tableau.basic_vars.index(entering_variable)
