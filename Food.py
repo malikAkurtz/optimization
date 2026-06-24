@@ -1,6 +1,6 @@
 import numpy as np
 
-class Food():
+class Ingredient():
     def __init__(self, name: str, units: str, price: float, calories: float, carbs: float, fat: float, protein: float):
         self.name       = name
         self.units      = units
@@ -10,7 +10,23 @@ class Food():
         self.fat        = fat
         self.protein    = protein
         
-beef = Food(
+    def get_units(self):
+        return self.units
+        
+    def get_calories(self):
+        return self.calories
+    
+    def get_carbs(self):
+        return self.carbs
+    
+    def get_fat(self):
+        return self.fat
+    
+    def get_protein(self):
+        return self.protein
+        
+# *************************** Ingredients ***************************
+beef = Ingredient(
     name="Beef",
     units="g",
     price=(24.99 / 2268), # ~$5.00/lb ground beef (5lb pack)
@@ -19,7 +35,7 @@ beef = Food(
     fat=0.0706, 
     protein=0.2028
 )
-egg = Food(
+egg = Ingredient(
     name="Egg",
     units="Eggs",
     price=(14.99 / 60), # 5-dozen pack
@@ -28,7 +44,7 @@ egg = Food(
     fat=4, 
     protein=6
 )
-milk = Food(
+milk = Ingredient(
     name="Milk",
     units="ml",
     price=(6.49 / 7570), # 2-gallon pack (~7570ml)
@@ -37,7 +53,7 @@ milk = Food(
     fat=0.0338,
     protein=0.0338,
 )
-chicken = Food(
+chicken = Ingredient(
     name="Chicken",
     units="g",
     price=0.0075, # $3.39/lb conversion we calculated
@@ -46,7 +62,7 @@ chicken = Food(
     fat=0.0545,
     protein=0.296
 )
-butter = Food(
+butter = Ingredient(
     name="Butter",
     units="tbsp",
     price=(13.99 / 128), # 4lb pack has 128 tbsp
@@ -55,7 +71,7 @@ butter = Food(
     fat=11,
     protein=0.0,
 )
-creamer = Food(
+creamer = Ingredient(
     name="Creamer",
     units="ml",
     price=(5.99 / 1890), # 1.89L Half & Half
@@ -64,7 +80,7 @@ creamer = Food(
     fat=0.1014,
     protein=0.0,
 )
-smoked_salmon = Food(
+smoked_salmon = Ingredient(
     name="Smoked Salmon",
     units="g",
     price=(22.99 / 680), # 24oz (680g) twin pack
@@ -73,7 +89,7 @@ smoked_salmon = Food(
     fat=0.0432,
     protein=0.183,
 )
-white_rice = Food(
+white_rice = Ingredient(
     name="White Rice",
     units="g",
     price=(19.99 / 11340), # 25lb bag (11,340g)
@@ -82,7 +98,7 @@ white_rice = Food(
     fat=0.003,
     protein=0.027
 )
-lamb = Food(
+lamb = Ingredient(
     name="Lamb",
     units="g",
     price=(28.50 / 2267), # Leg of lamb ~$5.69/lb
@@ -91,7 +107,7 @@ lamb = Food(
     fat=0.1146,
     protein=0.194
 )
-protein_powder = Food(
+protein_powder = Ingredient(
     name="Protein Powder",
     units="scoops",
     price=(59.99 / 80), # Whey Isolate 5.4lb (~80 servings)
@@ -100,7 +116,7 @@ protein_powder = Food(
     fat=2.0,
     protein=24.0
 )
-peanut_butter = Food(
+peanut_butter = Ingredient(
     name="Peanut Butter",
     units="g",
     price=(12.49 / 2260), # 2-pack 40oz jars
@@ -109,7 +125,7 @@ peanut_butter = Food(
     fat=0.4688,
     protein=0.25
 )
-banana = Food(
+banana = Ingredient(
     name="Banana",
     units="g",
     price=(7 * 121) / 1.69, # ~3lb bunch (approx 7 bananas)
@@ -118,7 +134,7 @@ banana = Food(
     fat=(2.8 / 1000),
     protein=(7.4 / 1000)
 )
-organic_super_smoothie = Food(
+organic_super_smoothie = Ingredient(
     name="Organic Super Smoothie Mix",
     units="pouches",
     price=(12.99 / 6), # Frozen 6-pack
@@ -127,7 +143,7 @@ organic_super_smoothie = Food(
     fat=1.0,
     protein=3.0
 )
-salmon = Food(
+salmon = Ingredient(
     name="Salmon",
     units="g",
     price=(45.39 / 1360.78), # 3lb bag
@@ -136,7 +152,7 @@ salmon = Food(
     fat=0.0476,
     protein=0.2202
 )
-mahi_mahi = Food(
+mahi_mahi = Ingredient(
     name="Mahi Mahi",
     units="g",
     price=(24.99 / 1360), # 3lb bag
@@ -145,7 +161,7 @@ mahi_mahi = Food(
     fat=0.0088,
     protein=0.1852
 )
-cod = Food(
+cod = Ingredient(
     name="Cod",
     units="g",
     price=(21.99 / 907), # 2lb bag
@@ -154,7 +170,7 @@ cod = Food(
     fat=0.0,
     protein=0.194
 )
-apple = Food(
+apple = Ingredient(
     name="Apple",
     units="g",
     price=None, # Organic 12-count bag
@@ -163,7 +179,7 @@ apple = Food(
     fat=(1.7 / 1000),
     protein=(2.6 / 1000)
 )
-normandy_veggies = Food(
+normandy_veggies = Ingredient(
     name="Normandy Vegetables",
     units="g",
     price=0.0040, 
@@ -172,7 +188,7 @@ normandy_veggies = Food(
     fat=0.003,
     protein=0.024
 )
-blueberries = Food(
+blueberries = Ingredient(
     name="Blueberries",
     units="g",
     price=0.0117,      # $5.99 / 510g = $0.0117 per gram
@@ -181,7 +197,7 @@ blueberries = Food(
     fat=0.003,         # 0.3g per 100g → 0.003 per gram
     protein=0.007      # 0.7g per 100g → 0.007 per gram
 )
-raw_spinach = Food(
+raw_spinach = Ingredient(
     name="Raw Spinach",
     units="g",
     price=0.0044,
@@ -190,7 +206,7 @@ raw_spinach = Food(
     fat=(3.9 / 1000),
     protein=(28.6 / 1000) 
 )
-greek_yogurt = Food(
+greek_yogurt = Ingredient(
     name="Greek Yogurt (Nonfat)",
     units="g",
     price=0.0037,      # $4.99 / 1361g = $0.0037 per gram
@@ -199,7 +215,7 @@ greek_yogurt = Food(
     fat=0.0,           # 0g per 100g (nonfat)
     protein=0.10       # 10g per 100g → 0.10 per gram
 )
-olive_oil = Food(
+olive_oil = Ingredient(
     name="Olive Oil",
     units="ml",
     price=None,
@@ -209,7 +225,7 @@ olive_oil = Food(
     protein=(0.0 / 1000) 
 )
 
-foods = {
+ingredients = {
     "Beef" : beef,
     "Egg" : egg,
     "Milk" : milk,
@@ -234,11 +250,115 @@ foods = {
     "Olive Oil" : olive_oil
 }
 
-calorie_coeffs = np.array([f.calories for f in foods.values()])
-protein_coeffs = np.array([f.protein for f in foods.values()])
-carbs_coeffs   = np.array([f.carbs for f in foods.values()])
-fat_coeffs     = np.array([f.fat for f in foods.values()])
+class Recipe():
+    def __init__(self, name: str, ingredients: dict[str, float]):
+        self.name        = name
+        self.ingredients = ingredients
+        
+    def get_units(self):
+        return "servings"
+    
+    def get_calories(self):
+        total_calories = 0
+        for ingredient_name, num_units in self.ingredients.items():
+            total_calories += (ingredients[ingredient_name].get_calories() * num_units)
+        return total_calories
+    
+    def get_carbs(self):
+        total_carbs = 0
+        for ingredient_name, num_units in self.ingredients.items():
+            total_carbs += (ingredients[ingredient_name].get_carbs() * num_units)
+        return total_carbs
+    
+    def get_fat(self):
+        total_fat = 0
+        for ingredient_name, num_units in self.ingredients.items():
+            total_fat += (ingredients[ingredient_name].get_fat() * num_units)
+        return total_fat
+    
+    def get_protein(self):
+        total_protein = 0
+        for ingredient_name, num_units in self.ingredients.items():
+            total_protein += (ingredients[ingredient_name].get_protein() * num_units)
+        return total_protein
+    
+# *************************** Recipes ***************************
+beef_normandy_veggies = Recipe(
+    name="Beef + Normandy Vegetables",
+    ingredients={
+        "Beef": 200,
+        "Normandy Vegetables": 100
+    }
+)
+beef_white_rice = Recipe(
+    name="Beef + White Rice",
+    ingredients={
+        "Beef": 200,
+        "White Rice": 100
+    }
+)
+chicken_normandy_veggies = Recipe(
+    name="Chicken + Normandy Vegetables",
+    ingredients={
+        "Chicken": 200,
+        "Normandy Vegetables": 100
+    }
+)
+chicken_white_rice = Recipe(
+    name="Chicken + White Rice",
+    ingredients={
+        "Chicken": 200,
+        "White Rice": 100
+    }
+)
+salmon_normandy_veggies = Recipe(
+    name="Salmon + Normandy Vegetables",
+    ingredients={
+        "Salmon": 200,
+        "Normandy Vegetables": 100
+    }
+)
+salmon_white_rice = Recipe(
+    name="Salmon + White Rice",
+    ingredients={
+        "Salmon": 200,
+        "White Rice": 100
+    }
+)
+cod_normandy_veggies = Recipe(
+    name="Cod + Normandy Vegetables",
+    ingredients={
+        "Cod": 200,
+        "Normandy Vegetables": 100
+    }
+)
+cod_white_rice = Recipe(
+    name="Cod + White Rice",
+    ingredients={
+        "Cod": 200,
+        "White Rice": 100
+    }
+)
+
+recipes = {
+    "Beef + Normandy Vegetables": beef_normandy_veggies,
+    "Beef + White Rice": beef_white_rice,
+    chicken_normandy_veggies.name: chicken_normandy_veggies,
+    chicken_white_rice.name: chicken_white_rice,
+    salmon_normandy_veggies.name: salmon_normandy_veggies,
+    salmon_white_rice.name: salmon_white_rice,
+    cod_normandy_veggies.name: cod_normandy_veggies,
+    cod_white_rice.name: cod_white_rice
+}
+
+foods = ingredients | recipes
 
 food_keys = list(foods.keys())
-
 num_foods = len(food_keys)
+
+calorie_coeffs = np.array([f.get_calories() for f in foods.values()])
+protein_coeffs = np.array([f.get_protein() for f in foods.values()])
+carbs_coeffs   = np.array([f.get_carbs() for f in foods.values()])
+fat_coeffs     = np.array([f.get_fat() for f in foods.values()])
+
+

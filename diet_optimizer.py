@@ -28,7 +28,7 @@ def main():
             name_length = len(name)
             shift = 50 - name_length
             if not np.isclose(days_quantities[j], 0.0):
-                print(f"{name}: {days_quantities[j]:>{shift}.2f} {food.units}")
+                print(f"{name}: {days_quantities[j]:>{shift}.2f} {food.get_units()}")
             
         print("-" * 20 + f" Day {i} Totals " + "-" * 20)
         
@@ -55,16 +55,34 @@ def main():
             units_required += days_quantities[j]
             
         units_required_dict[name] = units_required
-        
+                
     print("=" * 20 + f" Required Inventory " + "=" * 20)
     
-    for name, food in foods.items():
-        name_length = len(name)
-        quantity    = units_required_dict[name]
+    required_inventory = {}
+    
+    for i, (food_name, units_required) in enumerate(units_required_dict.items()):
+        food = foods[food_name]
+        if not np.isclose(units_required, 0.0):
+            if isinstance(food, Ingredient):
+                required_inventory[food_name] = required_inventory.get(food_name, 0.0) + units_required
+            elif isinstance(food, Recipe):
+                for ingredient_name, num_units in food.ingredients.items():
+                    required_inventory[ingredient_name] = required_inventory.get(ingredient_name, 0.0) + (num_units * units_required)
+                
+            
+    for ingredient_name, required_quantity in required_inventory.items():
+        name_length = len(ingredient_name)
         shift = 50 - name_length
+        print(f"{ingredient_name}: {required_quantity:>{shift}.2f} {foods[ingredient_name].get_units()}")
         
-        if not np.isclose(quantity, 0.0):
-            print(f"{name}: {units_required_dict[name]:>{shift}.2f} {food.units}")
+        
+    print("=" * 20 + f" To Prep " + "=" * 20)
+    for food_name, units_required in units_required_dict.items():
+        food = foods[food_name]
+        name_length = len(food_name)
+        shift = 50 - name_length
+        if not np.isclose(units_required, 0.0) and isinstance(food, Recipe):
+            print(f"{food_name}: {units_required:>{shift}.2f} {foods[food_name].get_units()}")
     
     
 if __name__=="__main__":
