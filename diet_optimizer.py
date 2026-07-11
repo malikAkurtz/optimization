@@ -19,7 +19,7 @@ def main():
         print("*" * 20 + f" Day {i} Diet " + "*" * 20)
         
         days_quantities = get_days_elements(
-            vector=quantities,
+            quantities=quantities,
             num_foods=num_foods,
             day=i
         )
@@ -48,7 +48,7 @@ def main():
         
         for i in range(DAYS_IN_PERIOD):
             days_quantities = get_days_elements(
-                vector=quantities,
+                quantities=quantities,
                 num_foods=num_foods,
                 day=i
             )

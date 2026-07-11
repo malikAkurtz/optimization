@@ -351,7 +351,8 @@ recipes = {
     cod_white_rice.name: cod_white_rice
 }
 
-foods = ingredients | recipes
+# foods = ingredients | recipes
+foods = ingredients
 
 food_keys = list(foods.keys())
 num_foods = len(food_keys)

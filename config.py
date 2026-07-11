@@ -126,18 +126,6 @@ if "Butter" in foods:
 # *************************** Beef Constraints ***************************
 if "Beef" in foods:
     # --------------------------- Daily Constraints ---------------------------
-    for i in range(DAYS_IN_PERIOD):
-        c = Constraint(
-            coeffs=create_daily_food_coeffs(
-                food_name="Beef",
-                food_keys=food_keys,
-                day=i,
-                days_in_period=DAYS_IN_PERIOD
-                ),
-            type="<=",
-            rhs=300
-        )
-        constraints.append(c)
     # --------------------------- Periodic Constraints ---------------------------
     constraints.append(
         Constraint(
@@ -229,18 +217,7 @@ constraints.append(
             days_in_period=DAYS_IN_PERIOD
         ),
         type="<=",
-        rhs=420 * WEEKS_IN_PERIOD
-    )
-)
-constraints.append(
-    Constraint(
-        coeffs=create_period_food_coeffs(
-            food_name="Salmon",
-            food_keys=food_keys,
-            days_in_period=DAYS_IN_PERIOD
-        ),
-        type="<=",
-        rhs=0
+        rhs=600 * WEEKS_IN_PERIOD
     )
 )
 
@@ -256,7 +233,7 @@ if "Chicken" in foods:
                 days_in_period=DAYS_IN_PERIOD
                 ),
             type="<=",
-            rhs=250
+            rhs=400
         )
         constraints.append(c)
     
@@ -272,7 +249,7 @@ if "Normandy Vegetables" in foods:
                 days_in_period=DAYS_IN_PERIOD
                 ),
             type="<=",
-            rhs=200
+            rhs=400
         )
         constraints.append(c)
     # --------------------------- Periodic Constraints ---------------------------
@@ -290,20 +267,31 @@ if "Normandy Vegetables" in foods:
     
 # *************************** Raw Spinach Constraints ***************************
 if "Raw Spinach" in foods:
-    # --------------------------- Daily Constraints ---------------------------
-    for i in range(DAYS_IN_PERIOD):
-        c = Constraint(
-            coeffs=create_daily_food_coeffs(
-                food_name="Raw Spinach",
-                food_keys=food_keys,
-                day=i,
-                days_in_period=DAYS_IN_PERIOD
-                ),
-            type="<=",
-            rhs=50
-        )
-        constraints.append(c)
-    # --------------------------- Periodic Constraints ---------------------------
+    # # --------------------------- Daily Constraints ---------------------------
+    # for i in range(DAYS_IN_PERIOD):
+    #     c = Constraint(
+    #         coeffs=create_daily_food_coeffs(
+    #             food_name="Raw Spinach",
+    #             food_keys=food_keys,
+    #             day=i,
+    #             days_in_period=DAYS_IN_PERIOD
+    #             ),
+    #         type="<=",
+    #         rhs=50
+    #     )
+    #     constraints.append(c)
+    # # --------------------------- Periodic Constraints ---------------------------
+    # constraints.append(
+    #     Constraint(
+    #         coeffs=create_period_food_coeffs(
+    #             food_name="Raw Spinach",
+    #             food_keys=food_keys,
+    #             days_in_period=DAYS_IN_PERIOD
+    #         ),
+    #         type=">=",
+    #         rhs=200 * WEEKS_IN_PERIOD
+    #     )
+    # )
     constraints.append(
         Constraint(
             coeffs=create_period_food_coeffs(
@@ -311,8 +299,8 @@ if "Raw Spinach" in foods:
                 food_keys=food_keys,
                 days_in_period=DAYS_IN_PERIOD
             ),
-            type=">=",
-            rhs=200 * WEEKS_IN_PERIOD
+            type="<=",
+            rhs=0
         )
     )
 
@@ -343,7 +331,7 @@ if "Banana" in foods:
                 days_in_period=DAYS_IN_PERIOD
                 ),
             type="<=",
-            rhs=200
+            rhs=300
         )
         constraints.append(c)
 
@@ -448,32 +436,34 @@ if "Apple" in foods:
         constraints.append(c)
     
 # *************************** Salmon + Normandy Vegetables Constraints ***************************
-# --------------------------- Periodic Constraints ---------------------------
-constraints.append(
-    Constraint(
-        coeffs=create_period_food_coeffs(
-            food_name="Salmon + Normandy Vegetables",
-            food_keys=food_keys,
-            days_in_period=DAYS_IN_PERIOD
-        ),
-        type="<=",
-        rhs=2 * WEEKS_IN_PERIOD
+if "Salmon + Normandy Vegetables" in foods:
+    # --------------------------- Periodic Constraints ---------------------------
+    constraints.append(
+        Constraint(
+            coeffs=create_period_food_coeffs(
+                food_name="Salmon + Normandy Vegetables",
+                food_keys=food_keys,
+                days_in_period=DAYS_IN_PERIOD
+            ),
+            type="<=",
+            rhs=2 * WEEKS_IN_PERIOD
+        )
     )
-)
     
 # *************************** Salmon + White Rice Constraints ***************************
-# --------------------------- Periodic Constraints ---------------------------
-constraints.append(
-    Constraint(
-        coeffs=create_period_food_coeffs(
-            food_name="Salmon + White Rice",
-            food_keys=food_keys,
-            days_in_period=DAYS_IN_PERIOD
-        ),
-        type="<=",
-        rhs=2 * WEEKS_IN_PERIOD
+if "Salmon + White Rice" in foods:
+    # --------------------------- Periodic Constraints ---------------------------
+    constraints.append(
+        Constraint(
+            coeffs=create_period_food_coeffs(
+                food_name="Salmon + White Rice",
+                food_keys=food_keys,
+                days_in_period=DAYS_IN_PERIOD
+            ),
+            type="<=",
+            rhs=2 * WEEKS_IN_PERIOD
+        )
     )
-)
 
 # *************************** Mahi Mahi Constraints ***************************
 # --------------------------- Periodic Constraints ---------------------------

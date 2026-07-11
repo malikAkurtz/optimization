@@ -1,161 +1,141 @@
 ******************** Day 0 Diet ********************
-Beef:                                          93.49 g
-Egg:                                            5.00 Eggs
+Beef:                                         269.46 g
+Egg:                                            2.52 Eggs
+Chicken:                                        1.76 g
 Protein Powder:                                 1.00 scoops
 Peanut Butter:                                 25.00 g
-Banana:                                       200.00 g
+Banana:                                       202.67 g
 Organic Super Smoothie Mix:                     1.00 pouches
+Cod:                                          121.85 g
 Apple:                                        250.00 g
-Normandy Vegetables:                          200.00 g
+Normandy Vegetables:                          400.00 g
 Blueberries:                                  150.00 g
-Raw Spinach:                                   50.00 g
-Greek Yogurt (Nonfat):                        100.00 g
+Greek Yogurt (Nonfat):                        200.00 g
 Olive Oil:                                     14.70 ml
-Salmon + White Rice:                            0.27 servings
-Cod + Normandy Vegetables:                      1.11 servings
 -------------------- Day 0 Totals --------------------
-Total Calories:                                 1792
+Total Calories:                                 1800
 Protein:                                         160 g
 Carbs:                                           165 g
 Fat:                                              60 g
 ******************** Day 1 Diet ********************
-Beef:                                          93.49 g
-Egg:                                            5.00 Eggs
+Egg:                                            3.63 Eggs
+Chicken:                                       95.06 g
 Protein Powder:                                 1.00 scoops
 Peanut Butter:                                 25.00 g
-Banana:                                       200.00 g
+Banana:                                       202.67 g
 Organic Super Smoothie Mix:                     1.00 pouches
+Salmon:                                       200.00 g
 Apple:                                        250.00 g
-Normandy Vegetables:                          200.00 g
+Normandy Vegetables:                          400.00 g
 Blueberries:                                  150.00 g
-Raw Spinach:                                   50.00 g
-Greek Yogurt (Nonfat):                        100.00 g
+Greek Yogurt (Nonfat):                        200.00 g
 Olive Oil:                                     14.70 ml
-Salmon + White Rice:                            0.27 servings
-Cod + Normandy Vegetables:                      1.11 servings
 -------------------- Day 1 Totals --------------------
-Total Calories:                                 1792
+Total Calories:                                 1788
 Protein:                                         160 g
 Carbs:                                           165 g
 Fat:                                              60 g
 ******************** Day 2 Diet ********************
-Beef:                                         120.54 g
-Egg:                                            4.49 Eggs
+Egg:                                            3.63 Eggs
+Chicken:                                       95.06 g
 Protein Powder:                                 1.00 scoops
 Peanut Butter:                                 25.00 g
-Banana:                                       200.00 g
+Banana:                                       202.67 g
 Organic Super Smoothie Mix:                     1.00 pouches
+Salmon:                                       200.00 g
 Apple:                                        250.00 g
-Normandy Vegetables:                          200.00 g
+Normandy Vegetables:                          400.00 g
 Blueberries:                                  150.00 g
-Raw Spinach:                                   50.00 g
-Greek Yogurt (Nonfat):                        100.00 g
+Greek Yogurt (Nonfat):                        200.00 g
 Olive Oil:                                     14.70 ml
-Salmon + White Rice:                            0.29 servings
-Cod + Normandy Vegetables:                      1.03 servings
 -------------------- Day 2 Totals --------------------
-Total Calories:                                 1793
+Total Calories:                                 1788
 Protein:                                         160 g
 Carbs:                                           165 g
 Fat:                                              60 g
 ******************** Day 3 Diet ********************
-Egg:                                            5.00 Eggs
+Egg:                                            4.12 Eggs
+Chicken:                                      233.96 g
 Protein Powder:                                 1.00 scoops
 Peanut Butter:                                 25.00 g
-Banana:                                       200.00 g
+Banana:                                       202.67 g
 Organic Super Smoothie Mix:                     1.00 pouches
 Apple:                                        250.00 g
-Normandy Vegetables:                          200.00 g
+Normandy Vegetables:                          400.00 g
 Blueberries:                                  150.00 g
-Raw Spinach:                                   50.00 g
-Greek Yogurt (Nonfat):                        100.00 g
+Greek Yogurt (Nonfat):                        200.00 g
 Olive Oil:                                     14.70 ml
-Salmon + Normandy Vegetables:                   0.78 servings
-Salmon + White Rice:                            0.18 servings
-Cod + Normandy Vegetables:                      0.80 servings
 -------------------- Day 3 Totals --------------------
-Total Calories:                                 1782
+Total Calories:                                 1800
 Protein:                                         160 g
 Carbs:                                           165 g
 Fat:                                              60 g
 ******************** Day 4 Diet ********************
-Egg:                                            5.00 Eggs
+Egg:                                            4.12 Eggs
+Chicken:                                      233.96 g
 Protein Powder:                                 1.00 scoops
 Peanut Butter:                                 25.00 g
-Banana:                                       165.54 g
+Banana:                                       202.67 g
 Organic Super Smoothie Mix:                     1.00 pouches
 Apple:                                        250.00 g
-Normandy Vegetables:                          200.00 g
+Normandy Vegetables:                          400.00 g
 Blueberries:                                  150.00 g
-Raw Spinach:                                   50.00 g
-Greek Yogurt (Nonfat):                        100.00 g
+Greek Yogurt (Nonfat):                        200.00 g
 Olive Oil:                                     14.70 ml
-Salmon + Normandy Vegetables:                   0.44 servings
-Salmon + White Rice:                            0.53 servings
-Cod + Normandy Vegetables:                      0.79 servings
 -------------------- Day 4 Totals --------------------
-Total Calories:                                 1784
+Total Calories:                                 1800
 Protein:                                         160 g
 Carbs:                                           165 g
 Fat:                                              60 g
 ******************** Day 5 Diet ********************
-Beef:                                          92.47 g
+Beef:                                         130.54 g
 Egg:                                            5.00 Eggs
 Protein Powder:                                 1.00 scoops
 Peanut Butter:                                 25.00 g
-Banana:                                       200.00 g
+Banana:                                       202.67 g
 Organic Super Smoothie Mix:                     1.00 pouches
+Cod:                                          193.17 g
 Apple:                                        250.00 g
-Normandy Vegetables:                          200.00 g
+Normandy Vegetables:                          400.00 g
 Blueberries:                                  150.00 g
-Raw Spinach:                                   50.00 g
-Greek Yogurt (Nonfat):                        100.00 g
+Greek Yogurt (Nonfat):                        200.00 g
 Olive Oil:                                     14.70 ml
-Salmon + Normandy Vegetables:                   0.01 servings
-Salmon + White Rice:                            0.27 servings
-Cod + Normandy Vegetables:                      1.10 servings
 -------------------- Day 5 Totals --------------------
-Total Calories:                                 1792
+Total Calories:                                 1796
 Protein:                                         160 g
 Carbs:                                           165 g
 Fat:                                              60 g
 ******************** Day 6 Diet ********************
-Egg:                                            5.00 Eggs
+Egg:                                            4.92 Eggs
 Protein Powder:                                 1.00 scoops
 Peanut Butter:                                 25.00 g
-Banana:                                       200.00 g
+Banana:                                       202.67 g
 Organic Super Smoothie Mix:                     1.00 pouches
+Salmon:                                       200.00 g
+Cod:                                          104.98 g
 Apple:                                        250.00 g
-Normandy Vegetables:                          200.00 g
+Normandy Vegetables:                          400.00 g
 Blueberries:                                  150.00 g
-Raw Spinach:                                   50.00 g
-Greek Yogurt (Nonfat):                        100.00 g
+Greek Yogurt (Nonfat):                        200.00 g
 Olive Oil:                                     14.70 ml
-Salmon + Normandy Vegetables:                   0.78 servings
-Salmon + White Rice:                            0.18 servings
-Cod + Normandy Vegetables:                      0.80 servings
 -------------------- Day 6 Totals --------------------
-Total Calories:                                 1782
+Total Calories:                                 1785
 Protein:                                         160 g
 Carbs:                                           165 g
 Fat:                                              60 g
 ==================== Required Inventory ====================
 Beef:                                         400.00 g
-Egg:                                           34.49 Eggs
+Egg:                                           27.94 Eggs
+Chicken:                                      659.79 g
 Protein Powder:                                 7.00 scoops
 Peanut Butter:                                175.00 g
-Banana:                                      1365.54 g
+Banana:                                      1418.66 g
 Organic Super Smoothie Mix:                     7.00 pouches
+Salmon:                                       600.00 g
+Cod:                                          420.00 g
 Apple:                                       1750.00 g
-Normandy Vegetables:                         2272.85 g
+Normandy Vegetables:                         2800.00 g
 Blueberries:                                 1050.00 g
-Raw Spinach:                                  350.00 g
-Greek Yogurt (Nonfat):                        700.00 g
+Greek Yogurt (Nonfat):                       1400.00 g
 Olive Oil:                                    102.90 ml
-Salmon:                                       800.00 g
-White Rice:                                   200.00 g
-Cod:                                         1345.70 g
 ==================== To Prep ====================
-Salmon + Normandy Vegetables:                   2.00 servings
-Salmon + White Rice:                            2.00 servings
-Cod + Normandy Vegetables:                      6.73 servings
